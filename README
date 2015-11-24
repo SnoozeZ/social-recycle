@@ -1,6 +1,4 @@
-== README
-
-###How to use
+### How to use
 
 Execute the following instructiongs in terminal:
 
@@ -11,7 +9,7 @@ Then open the web broswer to open the following url:
     
     http://localhost:3000/
     
-###How to contribute code 
+### How to contribute code 
 
     $git add .
     $git commit -m "what I have did"
