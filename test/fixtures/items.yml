@@ -1,1 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+item1:
+  title: MyString
+  description: MyString
+  pic_url: MyString
+  timeout: 2015-11-25
+  is_valid: MyString
+  lat: 1.5
+  lng: 1.5
+  post_date: 2015-11-25
+  user_id:
+
+item2:
+  title: MyString222
+  description: MyString
+  pic_url: MyString
+  timeout: 2015-11-25
+  is_valid: MyString
+  lat: 1.5
+  lng: 1.5
+  post_date: 2015-11-25
+  user_id:

@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125171904) do
+ActiveRecord::Schema.define(version: 20151125211410) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dibs", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "dibs", ["item_id"], name: "index_dibs_on_item_id"
+  add_index "dibs", ["user_id"], name: "index_dibs_on_user_id"
 
   create_table "items", force: :cascade do |t|
     t.string   "title"
@@ -20,12 +36,16 @@ ActiveRecord::Schema.define(version: 20151125171904) do
     t.date     "timeout"
     t.integer  "is_valid"
     t.float    "lat"
-    t.integer  "lng"
+    t.float    "lng"
     t.date     "post_date"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "giver_id"
+    t.integer  "category_id"
   end
+
+  add_index "items", ["category_id"], name: "index_items_on_category_id"
+  add_index "items", ["user_id"], name: "index_items_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

@@ -5,10 +5,11 @@ class CreateItems < ActiveRecord::Migration
       t.string :description
       t.string :pic_url
       t.date :timeout
-      t.integer :valid
+      t.integer :is_valid
       t.float :lat
-      t.integer :lng
+      t.float :lng
       t.date :post_date
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
