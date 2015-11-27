@@ -54,3 +54,4 @@ build/
 .rvmrc
 
 .DS_Store
+.idea/
