@@ -2,14 +2,19 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string
-#  email           :string
-#  phone           :string
-#  reg_time        :date
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string
+#  id                :integer          not null, primary key
+#  username          :string
+#  email             :string
+#  phone             :string
+#  reg_time          :date
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  password_digest   :string
+#  activation_digest :string
+#  activated         :boolean          default(FALSE)
+#  activated_at      :datetime
+#  reset_digest      :string
+#  reset_sent_at     :datetime
 #
 
 class User < ActiveRecord::Base

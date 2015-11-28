@@ -14,7 +14,9 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'autoprefixer-rails'
 # encrypt the password
 gem 'bcrypt', '~> 3.1'
-
+gem 'faker', '~> 1.6'
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
