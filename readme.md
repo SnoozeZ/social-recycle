@@ -21,5 +21,14 @@ Then push code into the repo
     $git add .
     $git commit -m "what I have did"
     $git push origin master
+    
+### Operations about database
+reset database: 
+    $bundle exec rake db:migrate:reset
+rollback:
+    $bundle exec rake db:rollback
+execute script in /db/migration:
+    $bundle exec rake db:migrate
+
 
 ----

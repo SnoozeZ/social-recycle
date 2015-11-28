@@ -25,4 +25,14 @@ class DibTest < ActiveSupport::TestCase
   test "dibs is valid" do
     assert @dibs.valid?
   end
+
+  test "should require a user id" do
+    @dibs.user_id = nil
+    assert_not @dibs.valid?
+  end
+
+  test "should require a item id" do
+    @dibs.item_id = nil
+    assert_not @dibs.valid?
+  end
 end

@@ -10,8 +10,8 @@
 #
 
 class Dib < ActiveRecord::Base
-  belongs_to :item
-  belongs_to :user
+  belongs_to :item, class_name: "Item"
+  belongs_to :user, class_name: "User"
 
   validates :item_id, presence: true
   validates :user_id, presence: true

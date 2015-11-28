@@ -20,6 +20,11 @@
 class Item < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
+
+  has_many :passive_dibs, class_name: "Dib",
+           foreign_key: "item_id",
+           dependent: :destroy
+  has_many :dibs_users, through: :passive_dibs, source: :user
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 100}
   validates :description, presence: true, length: {maximum: 1024}

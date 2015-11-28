@@ -18,4 +18,17 @@ billjyc:
   email: "billjyc@gmail.com"
   phone: "8223232"
   reg_time: "2014-02-02"
+  activated: true
   password_digest: <%= User.digest('password') %>
+  activated_at: <%= Time.zone.now %>
+
+<% 30.times do |n| %>
+  user_<%= n %>:
+    username: <%= "User #{n}" %>
+    email: <%= "user-#{n}@ucsd.edu" %>
+    phone: "822222"
+    reg_time: "2014-02-02"
+    activated: true
+    activated_at: <%= Time.zone.now %>
+    password_digest: <%= User.digest('password') %>
+<% end %>

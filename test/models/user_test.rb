@@ -83,4 +83,16 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "should make and cancel dibs an item" do
+    user = users(:billjyc)
+    item = items(:item1)
+    item.user_id = user.id
+    assert_not user.made_dibs?(item)
+    user.make_dibs(item)
+    assert user.made_dibs?(item)
+    assert item.dibs_users.include?(user)
+    user.cancel_dibs(item)
+    assert_not user.made_dibs?(item)
+  end
+
 end
