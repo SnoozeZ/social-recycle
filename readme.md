@@ -24,10 +24,15 @@ Then push code into the repo
     
 ### Operations about database
 reset database: 
+
     $bundle exec rake db:migrate:reset
+
 rollback:
+
     $bundle exec rake db:rollback
+
 execute script in /db/migration:
+
     $bundle exec rake db:migrate
 
 
