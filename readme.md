@@ -35,5 +35,9 @@ execute script in /db/migration:
 
     $bundle exec rake db:migrate
 
+fill in seeds data:
+
+    $bundle exec rake db:seeds
+
 
 ----
