@@ -25,9 +25,8 @@ class ItemTest < ActiveSupport::TestCase
   # end
   def setup
     @user = users(:billjyc)
-    @item = Item.new(title: "aaa", description: "daslfjdaslfjasfkj", pic_url: "aaa.com/image",
-                    timeout: "2015-11-11", is_valid: 1, lat: 111.11, lng: 123.32, post_date: "2015-12-22", user_id:
-                    @user.id)
+    @item = @user.items.build(title: "aaa", description: "daslfjdaslfjasfkj", pic_url: "aaa.com/image",
+                    timeout: "2015-11-11", is_valid: 1, lat: 111.11, lng: 123.32, post_date: "2015-12-22")
   end
 
   test "should be valid" do

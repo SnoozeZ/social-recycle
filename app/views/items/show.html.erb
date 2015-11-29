@@ -1,0 +1,19 @@
+<% provide(:title, @item.title) %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="container">
+        <%= image_tag(@item.avatar_url(:big), class: "img-rounded") if @item.avatar? %>
+      </div>
+
+    </div>
+    <div class="col-xs-6">
+      <h1><%= @item.title %></h1>
+      <p><span>Descrition: </span><%= @item.description %></p>
+      <p><span>Expired at: </span><%= @item.timeout %>
+      <p><span>Category: </span><%= @item.category %></p>
+      <p><span>Giver: </span><%= @item.user.username %></p>
+    </div>
+  </div>
+</div>
+

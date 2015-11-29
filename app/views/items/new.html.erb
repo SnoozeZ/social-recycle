@@ -1,0 +1,40 @@
+<%provide :title, "Post an Item" %>
+<h1>Post an item</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" id="post-item-form">
+    <%= form_for @item, html: {multipart: true} do |f| %>
+        <%= render 'shared/item_error_messages' %>
+        <%= f.label :title, "Name" %>
+        <%= f.text_field :title %>
+
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+
+        <%= f.label :timeout %>
+        <%= f.date_select :timeout %>
+
+        <%= f.label :category_id %>
+        <%= f.select :category_id, options_for_select([["Books"], ["Clothes"], ["Furnitures"], ["Others"]]),
+        prompt: 'Choose Category' %>
+
+
+
+        <%= f.label :avatar, "Upload Image" %>
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+          <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+          <div>
+            <span class="btn btn-default btn-file">
+              <span class="fileinput-new">Select image</span>
+              <span class="fileinput-exists">Change</span>
+              <%= f.file_field :avatar %>
+              <%= f.hidden_field :avatar_cache %>
+            </span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+          </div>
+        </div>
+
+        <%= f.submit "Post item", class: "btn btn-success" %>
+    <% end %>
+
+  </div>
+</div>

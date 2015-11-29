@@ -20,7 +20,7 @@
 class User < ActiveRecord::Base
   has_many :items, dependent: :destroy
   before_save {self.email = email.downcase}
-  validates :username, presence: true, length: {maximum: 20}
+  validates :username, presence: true, length: {maximum: 50}
   has_many :dibs, class_name: "Dib",
            foreign_key: "user_id",
            dependent: :destroy

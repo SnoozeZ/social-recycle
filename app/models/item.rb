@@ -16,8 +16,9 @@
 #  updated_at  :datetime         not null
 #  category_id :integer
 #
-
+require 'carrierwave/orm/activerecord'
 class Item < ActiveRecord::Base
+  attr_accessor :avatar_cache
   belongs_to :user
   belongs_to :category
 
@@ -31,4 +32,6 @@ class Item < ActiveRecord::Base
 
   #ordering the item with default_scope
   default_scope -> { order(created_at: :desc)}
+
+  mount_uploader :avatar, AvatarUploader
 end
