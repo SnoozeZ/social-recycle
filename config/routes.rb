@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root    'welcome#home'
   get 'say' => 'welcome#say'
 
+  match ':controller(/:action(/:id(.:format)))', :via => :all
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
