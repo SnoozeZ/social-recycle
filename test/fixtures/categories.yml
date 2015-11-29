@@ -11,7 +11,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 category1:
-  name: categort1
+  name: clothes
 
 two:
-  name: category2
+  name: books
+
+three:
+  name: furnitures
+
+four:
+  name: others

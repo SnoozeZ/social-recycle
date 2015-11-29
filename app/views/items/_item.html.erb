@@ -1,0 +1,5 @@
+<li>
+  <%= link_to item.title, item %>
+  <p><%= item.description%></p>
+  <%= image_tag(item.avatar_url(:big), class: "img-rounded") if item.avatar? %>
+</li>

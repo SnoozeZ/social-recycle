@@ -10,11 +10,19 @@
       </button>
       <%= link_to "Social Recycle", root_path, id: "logo" %>
     </div>
+
+    <%= form_tag(items_path, method: "get", id: "search-form", class: "navbar-form navbar-left") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+    <% end %>
     <nav>
+      <nav class="nav navbar-right">
+        <%= link_to "Sign up", signup_path, class: "btn btn-success navbar-btn", id: "sign-up-btn"%>
+        <%= link_to "Sign in", signin_path, class: "btn btn-default navbar-btn", id: "sign-in-btn"%>
+      </nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",    root_path %></li>
-        <li><%= link_to "Help",    '#' %></li>
-        <li><%= link_to "Log in", '#' %></li>
+        <li><%= link_to "Map Search",    '#' %></li>
       </ul>
     </nav>
   </div>

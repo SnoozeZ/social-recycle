@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   root    'welcome#home'
+  get 'signup' => 'users#new'
   get 'say' => 'welcome#say'
+  get 'signin' => 'sessions#new'
+  post 'signin' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  get 'post_item' => 'items#new'
+  post 'post_item' => 'items#create'
+
+  resources :users
+  resources :items
+  resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
   match ':controller(/:action(/:id(.:format)))', :via => :all
 

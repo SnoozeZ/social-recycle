@@ -2,14 +2,19 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string
-#  email           :string
-#  phone           :string
-#  reg_time        :date
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string
+#  id                :integer          not null, primary key
+#  username          :string
+#  email             :string
+#  phone             :string
+#  reg_time          :date
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  password_digest   :string
+#  activation_digest :string
+#  activated         :boolean          default(FALSE)
+#  activated_at      :datetime
+#  reset_digest      :string
+#  reset_sent_at     :datetime
 #
 
 require 'test_helper'
@@ -81,6 +86,18 @@ class UserTest < ActiveSupport::TestCase
   test "password should have a minimum length" do
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
+  end
+
+  test "should make and cancel dibs an item" do
+    user = users(:billjyc)
+    item = items(:item1)
+    item.user_id = user.id
+    assert_not user.made_dibs?(item)
+    user.make_dibs(item)
+    assert user.made_dibs?(item)
+    assert item.dibs_users.include?(user)
+    user.cancel_dibs(item)
+    assert_not user.made_dibs?(item)
   end
 
 end

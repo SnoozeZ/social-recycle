@@ -28,7 +28,8 @@ item1:
   lat: 1.5
   lng: 1.5
   post_date: 2015-11-25
-  user_id:
+  user_id: 1
+  category_id: 1
 
 item2:
   title: MyString222

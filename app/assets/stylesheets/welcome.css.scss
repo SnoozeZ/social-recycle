@@ -1,8 +1,16 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "bootstrap";
 @import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 /* universal */
 
@@ -23,6 +31,34 @@ textarea {
   h1 {
     margin-bottom: 10px;
   }
+}
+
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
 }
 
 /* header */
@@ -46,7 +82,99 @@ textarea {
   margin-bottom: 25px;
 }
 
-footer {
+#sign-up-btn{
+  margin-left: 10px;
+  color: white;
+  font-weight:bold;
+  font-size: 13px;
+  background-image: linear-gradient(#8add6d, #60b044);
+  border-color: #5ca941;
+  background-color: #60b044;
+  &:hover {
+    background-color: #569e3d;
+    background-image: linear-gradient(#79d858, #569e3d);
+    border-color:#4a993e;
+  }
 
-  margin: 50px 0;
+  &:focus{
+
+  }
 }
+
+/* forms */
+input {
+  height: auto !important;
+}
+
+#sign-up-form input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+
+#sign-in-form input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+#sign-in-button{
+  width:100%;
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+#sign-in-btn{
+  margin: 10px;
+  color: black;
+  font-size: 13px;
+  font-weight:bold;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  &:hover, &:focus {
+    background-color: #ddd;
+    background-image: linear-gradient(#ddd, #eee);
+    border-color:#ccc;
+  }
+}
+
+#search-form {
+  margin-left: 20px;
+  .form-control{
+    width: 200px;
+  }
+}
+
+
+footer {
+  margin-top: 60px;
+}
+
