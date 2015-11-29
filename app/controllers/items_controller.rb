@@ -18,6 +18,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def index
+    @items = Item.search(params[:search]).paginate(page: params[:page])
+    #@items = Item.all
+  end
+
   private
 
     def item_params

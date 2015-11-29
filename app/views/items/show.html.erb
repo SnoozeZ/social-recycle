@@ -11,7 +11,7 @@
       <h1><%= @item.title %></h1>
       <p><span>Descrition: </span><%= @item.description %></p>
       <p><span>Expired at: </span><%= @item.timeout %>
-      <p><span>Category: </span><%= @item.category %></p>
+      <p><span>Category: </span><%= @item.category.name %></p>
       <p><span>Giver: </span><%= @item.user.username %></p>
     </div>
   </div>

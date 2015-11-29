@@ -35,4 +35,12 @@ class Item < ActiveRecord::Base
   default_scope -> { order(created_at: :desc)}
 
   mount_uploader :avatar, AvatarUploader
+
+  def self.search(search)
+    if search
+      where 'title LIKE ?', "%#{search}%"
+    else
+      scoped
+    end
+  end
 end

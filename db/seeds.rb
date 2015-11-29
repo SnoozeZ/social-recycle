@@ -28,3 +28,21 @@ User.create!(username:  "Example User",
                activated_at: Time.zone.now)
 end
 
+Category.create!(name: "Clothes")
+
+100.times do |n|
+  title = Faker::Name.name
+  descritpion = "aslfdaslkdfjaslfjaslkfjaslfjsa"
+  Item.create!(title: title,
+    description: descritpion,
+               pic_url: nil,
+               timeout: Time.zone.now,
+               is_valid: false,
+               lat: 11.112,
+               lng: 32.32,
+               post_date: Time.zone.now,
+               user_id: 1,
+              category_id: 1
+    )
+end
+

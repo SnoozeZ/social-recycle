@@ -11,8 +11,8 @@
       <%= link_to "Social Recycle", root_path, id: "logo" %>
     </div>
 
-    <%= form_tag('#', method: "get", id: "search-form", class: "navbar-form navbar-left") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: "form-control" %>
+    <%= form_tag(items_path, method: "get", id: "search-form", class: "navbar-form navbar-left") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
         <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
     <% end %>
     <nav>
