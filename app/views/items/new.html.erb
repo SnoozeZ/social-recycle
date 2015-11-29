@@ -14,10 +14,7 @@
         <%= f.date_select :timeout %>
 
         <%= f.label :category_id %>
-        <%= f.select :category_id, options_for_select([["Books"], ["Clothes"], ["Furnitures"], ["Others"]]),
-        prompt: 'Choose Category' %>
-
-
+        <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true%>
 
         <%= f.label :avatar, "Upload Image" %>
         <div class="fileinput fileinput-new" data-provides="fileinput">
