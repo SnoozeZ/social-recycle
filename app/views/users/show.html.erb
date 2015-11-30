@@ -1,11 +1,18 @@
 <% provide(:title, @user.username) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.username %>
-      </h1>
-    </section>
-  </aside>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6">
+      <h4> Itemlist </h4>
+      <% @items.each do |s| %>
+          <p><a href= ../items/<%= s.id %>><%= s.title %></a></p>
+      <%end%>
+    </div>
+    <div class="col-xs-6" style = text-align:center>
+      <h1><%= @user.username %></h1>
+      <p><span>Name: </span><%= @user.username %></p>
+      <p><span>Reg at: </span><%= @user.reg_time %>
+      <p><span>phone: </span><%= @user.phone %></p>
+    </div>
+  </div>
 </div>
+
