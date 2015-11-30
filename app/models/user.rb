@@ -60,4 +60,11 @@ class User < ActiveRecord::Base
   def made_dibs?(item)
     dibs_item.include?(item)
   end
+
+  def self.user_daily_notify
+    @user = User.all
+    @user.each do |u|
+      UserMailer.daily_notify(u).deliver_now
+    end
+  end
 end
