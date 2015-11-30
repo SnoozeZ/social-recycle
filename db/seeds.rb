@@ -42,7 +42,9 @@ Category.create!(name: "Clothes")
                lng: 32.32,
                post_date: Time.zone.now,
                user_id: 1,
-              category_id: 1
+               category_id: 1,
+               address: "Gilman Drive",
+               avatar: open("public/uploads/20130709002417487.jpg")
     )
 end
 
