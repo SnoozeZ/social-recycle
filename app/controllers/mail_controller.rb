@@ -4,7 +4,4 @@ class MailController < ApplicationController
     UserMailer.welcome_email(User.first).deliver_now
   end
 
-  def new_dibs
-
-  end
 end
