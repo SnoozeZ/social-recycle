@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
             format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false}
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
 
   # Returns the hash digest of the given string.
@@ -59,5 +59,12 @@ class User < ActiveRecord::Base
   # Returns true if the current user has dibs the item
   def made_dibs?(item)
     dibs_item.include?(item)
+  end
+
+  def self.user_daily_notify
+    @user = User.all
+    @user.each do |u|
+      UserMailer.daily_notify(u).deliver_now
+    end
   end
 end

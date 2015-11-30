@@ -1,5 +1,6 @@
-<li>
-  <%= link_to item.title, item %>
-  <p><%= item.description%></p>
-  <%= image_tag(item.avatar_url(:big), class: "img-rounded") if item.avatar? %>
-</li>
+<div class="col-md-4 portfolio-item">
+  <div class="item_block">
+    <%= image_tag(item.avatar_url(:big)) if item.avatar? %>
+    <%= link_to item.title, item, {style: "font-size : 24px"}%>
+  </div>
+</div>

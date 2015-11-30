@@ -26,8 +26,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -49,6 +47,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
 end
 
 group :test do
@@ -59,8 +58,9 @@ group :test do
 end
 
 group :production do
-  gem 'pg',             '~> 0.18.4'
+  #gem 'pg',             '~> 0.18.4'
   gem 'rails_12factor', '0.0.2'
+  gem 'whenever', :require => false
 end
 
 
