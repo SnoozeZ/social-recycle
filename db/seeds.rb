@@ -42,7 +42,7 @@ Category.create!(name: "Clothes")
                lng: 32.32,
                post_date: Time.zone.now,
                user_id: 1,
-              category_id: 1
+               category_id: 1
     )
 end
 
