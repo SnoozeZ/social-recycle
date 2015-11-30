@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'map/mapsearch'
+
   root    'welcome#home'
   get 'signup' => 'users#new'
   get 'say' => 'welcome#say'
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'post_item' => 'items#new'
   post 'post_item' => 'items#create'
+  get 'map_search' => 'map#mapsearch'
 
   resources :users
   resources :items

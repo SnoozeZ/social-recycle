@@ -1,0 +1,95 @@
+<% provide(:title, 'Social Recycle') %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Nearby Items
+      <small>Secondary Text</small>
+    </h1>
+  </div>
+</div>
+<div class="map">
+	<center><div id="floating-panel">
+    <input id="address" type="textbox" value="UCSD, San Diego, CA">
+    <input id="submit" type="button" value="Search">
+  </div></center>
+  <div id="googleMap" style="width:960px;height:600px;"></div>
+  <script>
+    function placeMarker(map, location) {
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+      });
+      google.maps.event.addListener(marker,'click',function() {
+        alert("click on marker!");
+        window.location.href = "http://www.baidu.com"
+        // jump page here
+      });
+      google.maps.event.addListener(marker,'mouseover',function() {
+        // alert("hover on marker!");
+        // jump page here
+      });
+      var infowindow = new google.maps.InfoWindow({
+        content: 'Latitude: ' + location.lat() +
+        '<br>Longitude: ' + location.lng()
+      });
+      infowindow.open(map,marker);
+    }
+    function codeAddress(geocoder, map) {
+      var address = document.getElementById('address').value;
+      // var geocoder = new google.maps.Geocoder();
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          for (i in results)
+          {
+            placeMarker(map, results[i].geometry.location)
+          }
+          // map.setCenter(results[0].geometry.location);
+          // var marker = new google.maps.Marker({
+          //   map: map,
+          //   position: results[0].geometry.location
+          // });
+        } else {
+          alert("Geocode was not successful for the following reason: " + status);
+        }
+      });
+    }
+    function initialize() {
+      var mapProp = {
+        zoom:15,
+        mapTypeId:google.maps.MapTypeId.ROADMAP,
+        center:new google.maps.LatLng(32.877348, -117.233825)
+      };
+      var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+      var geocoder = new google.maps.Geocoder();
+      document.getElementById('submit').addEventListener('click', function() {
+        codeAddress(geocoder, map);
+      });
+      // var myCenter=new google.maps.LatLng(51.508742,-0.120850);
+      // codeAddress();
+      // var marker=new google.maps.Marker({
+      //   position:myCenter,
+      //   animation:google.maps.Animation.BOUNCE
+      // });
+
+      // marker.setMap(map);
+      // newMarker.setMap(map);
+      // var infowindow = new google.maps.InfoWindow({
+      //   content:"Your Place Here"
+      // });
+      // google.maps.event.addListener(marker, 'click', function() {
+      //   infowindow.open(map,marker);
+      // });
+      // google.maps.event.addListener(map, 'click', function(event) {
+      //   placeMarker(event.latLng);
+      // });
+    }
+    $(document).on('ready page:load', function(event) {
+      // apply non-idempotent transformations to the body
+      initialize();
+    });
+    // window.onload=initialize;
+    // google.maps.event.addDomListener(window, 'load', initialize);
+    console.log('worinigedaxuebi');
+    // window.location.reload();
+  </script>
+</div>
