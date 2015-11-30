@@ -101,6 +101,16 @@ p {
   }
 }
 
+#user-dropdown{
+  margin-top:5px;
+  color: #9d9d9d;
+
+  &:hover, &:focus{
+    background-color:transparent;
+    color: #fff;
+  }
+}
+
 /* forms */
 input {
   height: auto !important;
