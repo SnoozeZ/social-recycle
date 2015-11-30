@@ -13,12 +13,13 @@
       <p><span style="font-weight : bold"> Expired at: </span><%= @item.timeout %>
       <p><span style="font-weight : bold"> Category: </span><%= @item.category.name %></p>
       <p><span style="font-weight : bold"> Giver: </span><%= @item.user.username %></p>
-
+      <p><span style="font-weight : bold"> Item_id: </span><%= @item.id %></p>
     </div>
-    <% if !current_user.user.dibs.find(params[@item.id]) %>
-        <%= button_to "I Want!", :action => "create", :controller => "dibs", :item_id => @item.id, :user_id => @user.id, class: "btn btn-primary pull-right" %>
+    <% id = @item.id%>
+    <% if !current_user.dibs.exists?(:item_id => id) %>
+        <%= button_to "I Want!", {:controller => "dibs", :action => "create", :dib=> {:item_id => id, :user_id => current_user.id}}, :method => :post, class: "btn btn-primary pull-right" %>
     <% else %>
-        <%= button_to "Withdraw!", :action => "destroy", :controller => "dibs", :item_id => @item.id, :user_id => @user.id, class: "btn btn-sm btn=default" %>
+        <%= button_to "Withdraw!", {:controller => "dibs", :action => "destroy", :dib => {:item_id => id, :user_id => current_user.id}}, class: "btn btn-sm btn=default" %>
     <% end %>
   </div>
 </div>
