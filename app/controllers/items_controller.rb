@@ -19,8 +19,11 @@ class ItemsController < ApplicationController
   end
 
   def index
-    #@items = Item.search(params[:search]).paginate(page: params[:page])
-    @items = Item.all.paginate(page: params[:page])
+    @items = Item.where(is_valid: true).paginate(page: params[:page])
+  end
+
+  def search
+    @items = Item.where(is_valid: true).search(params[:search]).paginate(page: params[:page])
   end
 
   private
@@ -28,10 +31,6 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:title, :description, :timeout,
                                    :avatar, :category_id, :avatar_cache)
-    end
-
-    def current_user
-      user = User.find(1)
     end
 
 end

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  root    'welcome#home'
+  root    'items#index'
   get 'signup' => 'users#new'
   get 'say' => 'welcome#say'
   get 'signin' => 'sessions#new'
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'post_item' => 'items#new'
   post 'post_item' => 'items#create'
+  get 'search_item' => 'items#search'
 
 
   resources :users

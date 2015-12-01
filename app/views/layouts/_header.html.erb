@@ -1,3 +1,6 @@
+<script>
+
+</script>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
 
@@ -11,9 +14,9 @@
       <%= link_to "Social Recycle", root_path, id: "logo" %>
     </div>
 
-    <%= form_tag(items_path, method: "get", id: "search-form", class: "navbar-form navbar-left") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+    <%= form_tag(search_item_path, method: "get", id: "search-form", class: "navbar-form navbar-left", onsubmit: "return clear2();") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control", id: "search-bar" %>
+        <%= submit_tag "Search", name: nil, class: "btn btn-default"%>
     <% end %>
     <nav>
       <nav class="nav navbar-right">
