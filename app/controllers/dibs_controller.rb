@@ -11,6 +11,13 @@ class DibsController < ApplicationController
     end
   end
 
+  def give
+    Item.find(dib_params[:item_id]).destroy
+    Dib.where(item_id: dib_params[:item_id]).destroy_all
+    flash[:notice] = "Thanks for your generosity!"
+    redirect_to root_path
+  end
+
   def destroy
     @dib = Dib.find_by(item_id: dib_params[:item_id], user_id: dib_params[:user_id])
     @dib.destroy
