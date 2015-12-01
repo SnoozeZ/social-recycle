@@ -14,12 +14,14 @@
       <li><a data-toggle="tab" href="#dibs2">Dibs Items</a></li>
     </ul>
     <div id="tabcontent" class="tab-content">
-      <div id="dropped" class="tab-pane fade in active" data-toggle="tab">
+      <div id="dropped" class="tab-pane fade in active">
         <% @items.each do |s| %>
-            <p><a href= "../items/<%= s.id %>" target="_blank" ><%= s.title %></a></p>
+
+            <p><a href= "../items/<%= s.id %>"><%= s.title %></a></p>
         <%end%>
+
       </div>
-      <div id="dibs2" class="tab-pane fade" data-toggle="tab">
+      <div id="dibs2" class="tab-pane fade">
         <h1>Dibs items</h1>
         <p>das;fjadsl;kfjsadklfjadsklfmlkadsvml;kvml;c
         adsfl;jasdfk;fk'adsfkasd</p>
