@@ -58,3 +58,4 @@ build/
 
 /public/uploads/item
 Gemfile.lock
+*.jpg

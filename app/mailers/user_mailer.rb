@@ -18,6 +18,6 @@ class UserMailer < ApplicationMailer
     @giver = giver
     @receiver = receiver
     @item = item
-    mail(from: 'social.recycle.cse210@gmail.com', to: @reveiver.email, subject: 'Congratulation! You got new item!')
+    mail(from: 'social.recycle.cse210@gmail.com', to: @receiver.email, subject: 'Congratulation! You got new item!')
   end
 end

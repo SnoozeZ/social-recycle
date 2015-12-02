@@ -65,7 +65,7 @@ Item.create!(title: "Everything",
   title = Faker::Name.name
   descritpion = "aslfdaslkdfjaslfjaslkfjaslfjsa"
   Item.create!(title: title,
-    description: descritpion,
+               description: descritpion,
                timeout: Time.zone.now,
                is_valid: true,
                lat: 11.112,
@@ -97,4 +97,3 @@ Dib.create!(
     item_id: 1,
     user_id: 7
 )
-
