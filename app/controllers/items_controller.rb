@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
     @items = Item.where(is_valid: true, status: 0).search(params[:search]).paginate(page: params[:page])
   end
 
+
   private
 
     def item_params

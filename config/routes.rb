@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'post_item' => 'items#new'
   post 'post_item' => 'items#create'
   get 'search_item' => 'items#search'
+  get 'map_search' => 'map#mapsearch'
 
 
   resources :users
