@@ -20,6 +20,10 @@ class DibsController < ApplicationController
     @item.save
     Dib.where(item_id: dib_params[:item_id]).destroy_all
 
+    #notify the reveiver by mail
+    giver = User.find(@item.user_id)
+    UserMailer.get_item_notify(giver, receriver, @item).deliver_now
+
     flash[:notice] = "Thanks for your generosity!"
     redirect_to root_path
   end

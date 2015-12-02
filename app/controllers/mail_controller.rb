@@ -8,4 +8,8 @@ class MailController < ApplicationController
     UserMailer.daily_notify(User.first).deliver_now
   end
 
+  def test_get_item_notify
+
+  end
+
 end
