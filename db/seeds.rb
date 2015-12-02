@@ -72,16 +72,6 @@ Item.create!(title: "Everything",
                lng: 32.32,
                post_date: Time.zone.now,
                user_id: 1,
-<<<<<<< HEAD
-# <<<<<<< HEAD
-#                category_id: 1
-# =======
-#                category_id: 1,
-#                address: "Gilman Drive",
-#                avatar: open("public/uploads/20130709002417487.jpg")
-# >>>>>>> 44b785118ab29e9a49b203ddd2798fc18c21ed08
-    )
-=======
 
                category_id: 1,
                address: "Gilman Drive",
@@ -92,7 +82,6 @@ Item.create!(title: "Everything",
                address: "Gilman Drive",
                avatar: open("public/uploads/abc.jpg")
   )
->>>>>>> 62293393acb87d60928f27e9cb57e8c44b6ba1a2
 end
 
 #for test - weiqi

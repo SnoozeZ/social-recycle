@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  root    'home#welcome'
-=======
-  get 'sessions/new'
 
-  root    'items#index'
->>>>>>> 62293393acb87d60928f27e9cb57e8c44b6ba1a2
+  root    'home#welcome'
+  get 'sessions/new'
   get 'signup' => 'users#new'
 
   get 'signin' => 'sessions#new'
