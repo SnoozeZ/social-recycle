@@ -4,4 +4,8 @@ class MailController < ApplicationController
     UserMailer.welcome_email(User.first).deliver_now
   end
 
+  def test_daily_notify
+    UserMailer.daily_notify(User.first).deliver_now
+  end
+
 end

@@ -1,9 +1,7 @@
 Good evening, <%= @user.username %>!
 ===============================================
-Today some people have Dibsed your item:
-
-__
-You have successfully signed up to example.com,
-your username is: <%= @user.username %>.
-
-Thanks for joining and have a great day!
+New users have dibs your following items:
+<% @item.each do |i| %>
+    User <%= i.user_id %> has dibsed you item: <%= i.item_id %>.
+<% end %>
+Please refer to your personal page to see the detail: http://0.0.0.0/users/102
