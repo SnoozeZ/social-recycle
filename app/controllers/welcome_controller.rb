@@ -1,10 +1,8 @@
 class WelcomeController < ApplicationController
 
-    #hihi
-    def say
-    end
+    layout false;
 
-    def home
+    def welcome
 
     end
 end

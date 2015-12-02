@@ -1,0 +1,42 @@
+<div>
+    <!--<video autoplay  poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" loop>-->
+      <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+      <!--<source src="//demosthenes.info/assets/videos/polina.webm" type="video/webm">-->
+      <!--<source src="//demosthenes.info/assets/videos/polina.mp4" type="video/mp4">-->
+
+      <!--<source src="http://static-p.iuqo.com/media/home/home/video/cloud.mp4" type="video/mp4">-->
+
+     <!--<video class="vjs-tech" data-setup="{}" id="clip_html5_api" loop="" src="http://static-p.iuqo.com/media/home/home/video/cloud.mp4"></video>-->
+
+    <video autoplay id="bgvid" loop>
+
+      <source src="http://37121376b36dd0b52814-9ad0fb0c63d34d77a32663fd772a7fd4.r44.cf2.rackcdn.com/spry-video.mp4" type="video/mp4">
+      <source src="http://37121376b36dd0b52814-9ad0fb0c63d34d77a32663fd772a7fd4.r44.cf2.rackcdn.com/spry-video.ogv" type="video/ogg">
+      <source src="http://37121376b36dd0b52814-9ad0fb0c63d34d77a32663fd772a7fd4.r44.cf2.rackcdn.com/spry-video.webm" type="video/webm">
+
+    </video>
+
+  <div id="polina">
+    <h1>Social Recycle</h1>
+
+    <%= link_to "Post Item", {controller: 'items', action: 'new'}, id: 'post_item'%>
+    <%= link_to "Find Item", {controller: 'items', action: 'index'}, id: 'find_item'%>
+  </div>
+
+  <div id="footer">
+      <p class="text-muted credit">Copyright &copy; Huluwa Team, 2015</p>
+  </div>
+
+</div>
+
+
+
+<!--
+
+<footer class="footer">
+  <div class="container text-center">
+    <p class="text-muted credit">Copyright &copy; Huluwa Team, 2015</p>
+  </div>
+</footer>
+
+-->

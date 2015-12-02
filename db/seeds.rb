@@ -42,13 +42,13 @@ Category.create!(name: "Clothes")
                lng: 32.32,
                post_date: Time.zone.now,
                user_id: 1,
-<<<<<<< HEAD
-               category_id: 1
-=======
-               category_id: 1,
-               address: "Gilman Drive",
-               avatar: open("public/uploads/20130709002417487.jpg")
->>>>>>> 44b785118ab29e9a49b203ddd2798fc18c21ed08
+# <<<<<<< HEAD
+#                category_id: 1
+# =======
+#                category_id: 1,
+#                address: "Gilman Drive",
+#                avatar: open("public/uploads/20130709002417487.jpg")
+# >>>>>>> 44b785118ab29e9a49b203ddd2798fc18c21ed08
     )
 end
 
