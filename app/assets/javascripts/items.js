@@ -12,3 +12,12 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+function clear2() {
+    console.log("clear");
+    var content = $('#search-bar').val();
+    if(content == "") {
+        return false;
+    }
+
+}
