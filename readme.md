@@ -39,5 +39,11 @@ fill in seeds data:
 
     $bundle exec rake db:seed
 
+### Things to be done
+1. UCSD邮箱验证（只是前端限制？还是邮件发链接验证？）
+2. 按Category来搜索
+3. item页面加地图，显示两个点，以及两个点之间的距离
+4. 在item页面，如果item被dibs掉了，就不显示了
+5. Reset Password
 
 ----
