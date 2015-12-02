@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
            dependent: :destroy
   has_many :dibs_item, through: :dibs, source: :item
 
+  has_many :received_items, class_name: "Item", foreign_key: "receiver_id"
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 50},
             format: { with: VALID_EMAIL_REGEX },

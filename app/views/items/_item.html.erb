@@ -1,6 +1,13 @@
 <div class="col-md-4 portfolio-item">
   <div class="item_block">
-    <%= image_tag(item.avatar_url(:big)) if item.avatar? %>
-    <%= link_to item.title, item, {style: "font-size : 24px"}%>
+    <div class="row">
+      <%= image_tag(item.avatar_url(:big)) if item.avatar? %>
+    </div>
+    <div class="row">
+      <%= link_to item.title, item, {style: "font-size : 24px"}%>
+    </div>
+    <div class="row">
+      <p><%= item.description%></p>
+    </div>
   </div>
 </div>
