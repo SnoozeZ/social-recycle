@@ -19,18 +19,18 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.where(is_valid: true).paginate(page: params[:page])
+    @items = Item.where(is_valid: true, status: 0).paginate(page: params[:page])
   end
 
   def search
-    @items = Item.where(is_valid: true).search(params[:search]).paginate(page: params[:page])
+    @items = Item.where(is_valid: true, status: 0).search(params[:search]).paginate(page: params[:page])
   end
 
   private
 
     def item_params
       params.require(:item).permit(:title, :description, :timeout,
-                                   :avatar, :category_id, :avatar_cache)
+                                   :avatar, :category_id, :avatar_cache, :status)
     end
 
 end

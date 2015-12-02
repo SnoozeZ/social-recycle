@@ -12,8 +12,14 @@ class DibsController < ApplicationController
   end
 
   def give
-    Item.find(dib_params[:item_id]).destroy
+    @item = Item.find(dib_params[:item_id])
+    @item.status=1
+    receiver = User.find(dib_params[:user_id])
+    #p receiver
+    @item.receiver = receiver
+    @item.save
     Dib.where(item_id: dib_params[:item_id]).destroy_all
+
     flash[:notice] = "Thanks for your generosity!"
     redirect_to root_path
   end

@@ -34,10 +34,12 @@ ActiveRecord::Schema.define(version: 20151129230442) do
     t.string   "description"
     t.date     "timeout"
     t.boolean  "is_valid",    default: true
+    t.integer  "status",      default: 0
     t.float    "lat"
     t.float    "lng"
     t.date     "post_date"
     t.integer  "user_id"
+    t.integer  "receiver_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "category_id"
