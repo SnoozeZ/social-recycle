@@ -22,7 +22,7 @@ class DibsController < ApplicationController
 
     #notify the reveiver by mail
     giver = User.find(@item.user_id)
-    UserMailer.get_item_notify(giver, receriver, @item).deliver_now
+    UserMailer.get_item_notify(giver, receiver, @item).deliver_now
 
     flash[:notice] = "Thanks for your generosity!"
     redirect_to root_path
