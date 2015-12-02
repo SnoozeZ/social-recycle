@@ -7,7 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.reg_time = Time.new
     if @user.save
-      redirect_to signin_url
+      log_in @user
+      flash[:success]="Welcome to Social Recycle!"
+      redirect_to @user
     else
       render 'new'
     end
@@ -30,6 +32,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @items = @user.items.paginate(page: params[:page])
+    @dibs_items = @user.dibs_item.paginate(page: params[:page])
   end
 
   private

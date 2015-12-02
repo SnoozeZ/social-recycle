@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20151129230442) do
   create_table "items", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.string   "pic_url"
     t.date     "timeout"
     t.boolean  "is_valid",    default: true
     t.float    "lat"
