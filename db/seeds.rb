@@ -71,11 +71,17 @@ Item.create!(title: "Everything",
                lat: 11.112,
                lng: 32.32,
                post_date: Time.zone.now,
+               user_id: 1,
+
+               category_id: 1,
+               address: "Gilman Drive",
+               avatar: open("public/uploads/20130709002417487.jpg"),
+
                user_id: n + 1,
                category_id: 1,
                address: "Gilman Drive",
                avatar: open("public/uploads/abc.jpg")
-    )
+  )
 end
 
 #for test - weiqi
