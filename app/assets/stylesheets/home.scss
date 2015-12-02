@@ -21,25 +21,30 @@ video {
 }
 
 #polina {
-  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
-  font-weight:50;
+  font-family: Impact, Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-weight:100;
   background: rgba(0,0,0,0.3);
   color: white;
   padding: 2rem;
-  width: 50%;
-  margin:2rem;
-  float: right;
+  width: 100%;
+//  margin:2rem;
+//  float: middle;
+
   font-size: 1.2rem;
 
-  position: relative;
-  left: 50%;
-  top: 50%;
+  position: absolute;
+  top: 25%;
+  vertical-align: middle;
+  text-align: center;
 }
+
 h1 {
-  font-size: 3rem;
+  font-size: 5rem;
   text-transform: uppercase;
-  margin-top: 0;
-  letter-spacing: .3rem;
+  left: 50%;
+  margin:auto;
+  //letter-spacing: .3rem;
+
 }
 
 #polina button {
@@ -54,10 +59,16 @@ h1 {
   border-radius: 3px;
   cursor: pointer;
   transition: .3s background;
+
 }
 
 #polina button:hover {
   background: rgba(0,0,0,0.5);
+}
+
+#polina p{
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  color: lightgray;
 }
 
 a {
@@ -67,10 +78,36 @@ a {
   background:rgba(0,0,0,0.5);
   padding: .5rem;
   transition: .6s background;
+
+  margin-top: 2em;
+  width: 8em;
+
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+
 }
 
 a:hover{
-  background:rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.5);
+}
+
+#post_item{
+  background: #FF9933;
+  color: white;
+}
+
+#find_item{
+  background: #993366;
+  color: white;
+}
+
+#post_item:hover{
+   background: rgba(0,0,0,0.5);
+   color: white;
+ }
+
+#find_item:hover{
+  background: rgba(0,0,0,0.5);
+  color: white;
 }
 
 @media screen and (max-width: 500px) {
@@ -79,4 +116,13 @@ a:hover{
 @media screen and (max-device-width: 800px) {
   html { background: url(//demosthenes.info/assets/images/polina.jpg) #000 no-repeat center center fixed; }
   #bgvid { display: none; }
+}
+
+#footer {
+  position: absolute;
+  bottom: 0%;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  color: white;
 }
