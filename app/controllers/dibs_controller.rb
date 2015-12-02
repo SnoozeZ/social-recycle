@@ -20,7 +20,7 @@ class DibsController < ApplicationController
     @item.save
     Dib.where(item_id: dib_params[:item_id]).destroy_all
 
-    #notify the reveiver by mail
+    #notify the receiver by mail - by weiqi
     giver = User.find(@item.user_id)
     UserMailer.get_item_notify(giver, receiver, @item).deliver_now
 
