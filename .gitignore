@@ -57,3 +57,4 @@ build/
 .idea/
 
 /public/uploads/item
+Gemfile.lock
