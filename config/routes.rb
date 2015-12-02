@@ -1,17 +1,28 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   root    'home#welcome'
+=======
+  get 'sessions/new'
+
+  root    'items#index'
+>>>>>>> 62293393acb87d60928f27e9cb57e8c44b6ba1a2
   get 'signup' => 'users#new'
 
   get 'signin' => 'sessions#new'
   post 'signin' => 'sessions#create'
+
   delete 'logout' => 'sessions#destroy'
   get 'post_item' => 'items#new'
   post 'post_item' => 'items#create'
+  get 'search_item' => 'items#search'
+  get 'map_search' => 'map#mapsearch'
+
 
 
 
   resources :users
   resources :items
+  resources :dibs
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
 

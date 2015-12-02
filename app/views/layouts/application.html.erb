@@ -6,9 +6,11 @@
                           'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
 </head>
 <body>
     <%= render 'layouts/header' %>
+    <%= notice_message %>
     <div class="container">
       <%= yield %>
       <%= render 'layouts/footer' %>

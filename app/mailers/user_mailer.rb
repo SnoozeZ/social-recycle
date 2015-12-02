@@ -8,6 +8,16 @@ class UserMailer < ApplicationMailer
 
   def daily_notify(user)
     @user = user
-    mail(from: 'social.recycle.cse210@gmail.com', to: @user.email, subject: 'Some One Dibsed Your item Today!')
+    @item = Item.find_by_sql(['SELECT dibs.user_id, dibs.item_id, items.title FROM dibs JOIN items ON dibs.item_id = items.id WHERE items.user_id = ?', @user.id])
+    if !@item.empty?
+      mail(from: 'social.recycle.cse210@gmail.com', to: @user.email, subject: 'Some One Dibsed Your item Today!')
+    end
+  end
+
+  def get_item_notify(giver, receiver, item)
+    @giver = giver
+    @receiver = receiver
+    @item = item
+    mail(from: 'social.recycle.cse210@gmail.com', to: @receiver.email, subject: 'Congratulation! You got new item!')
   end
 end
