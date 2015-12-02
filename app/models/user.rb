@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 
   has_many :received_items, class_name: "Item", foreign_key: "receiver_id"
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@(eng.)?ucsd.edu/i
   validates :email, presence: true, length: {maximum: 50},
             format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false}
