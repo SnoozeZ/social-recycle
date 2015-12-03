@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @item = current_user.items.build(item_params)
     if @item.save
       flash[:success] = "Item posted!"
-      redirect_to root_url
+      redirect_to items_url
     else
       render 'new'
     end

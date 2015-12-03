@@ -19,7 +19,7 @@
           <%end%>
         </ul>
 
-        <%= will_paginate @items %>
+        <%= will_paginate @items, class:"center" %>
       </div>
       <div id="dibs" class="tab-pane fade">
         <ul style="margin-top: 10px;">
@@ -27,8 +27,7 @@
               <li><%= link_to item.title, item %></li>
           <% end %>
         </ul>
-
-        <%= will_paginate @dibs_items%>
+        <%= will_paginate @dibs_items, class: "center"%>
       </div>
 
     </div>

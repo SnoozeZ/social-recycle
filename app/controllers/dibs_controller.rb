@@ -25,7 +25,7 @@ class DibsController < ApplicationController
     UserMailer.get_item_notify(giver, receiver, @item).deliver_now
 
     flash[:notice] = "Thanks for your generosity!"
-    redirect_to root_path
+    redirect_to items_path
   end
 
   def destroy
