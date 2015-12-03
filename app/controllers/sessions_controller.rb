@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in user
-      redirect_to items_path
+      redirect_to items_url
     else
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    redirect_to items_path
+    redirect_to items_url
   end
 
 end
