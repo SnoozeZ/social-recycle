@@ -36,16 +36,18 @@ video {
   position: absolute;
   top: 30%;
   text-align: center;
+  h1 {
+    font-size: 5rem;
+    text-transform: uppercase;
+    left: 50%;
+    margin:auto;
+    //letter-spacing: .3rem;
+
+  }
+
 }
 
-h1 {
-  font-size: 5rem;
-  text-transform: uppercase;
-  left: 50%;
-  margin:auto;
-  //letter-spacing: .3rem;
 
-}
 
 #polina button {
   display: block;
@@ -72,7 +74,7 @@ h1 {
   margin-top: -0.2em;
 }
 
-a {
+#polina a {
   display: inline-block;
   color: #fff;
   text-decoration: none;
@@ -91,7 +93,7 @@ a {
 
 }
 
-a:hover{
+#polina a:hover{
   background: rgba(0,0,0,0.5);
   border-color: darkgrey;
 }
