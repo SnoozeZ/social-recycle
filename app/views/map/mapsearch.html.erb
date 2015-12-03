@@ -3,16 +3,15 @@
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header">Nearby Items
-      <small>Secondary Text</small>
     </h1>
   </div>
 </div>
-<div class="map">
+<div class="map col-md-8">
   <center><div id="floating-panel">
     <input id="address" type="textbox" value="UCSD, San Diego, CA">
     <input id="submit" type="button" value="Search">
   </div></center>
-  <div id="googleMap" style="width:960px;height:600px;"></div>
+  <div id="googleMap" style="width:100%;height:400px;"></div>
   <script>
     function placeMarker(map, location) {
       var marker = new google.maps.Marker({
@@ -111,3 +110,43 @@
     // window.location.reload();
   </script>
 </div>
+
+<div class="col-md-4">
+    <div class="row" style="margin-top:20px;">
+      <h4>Distance</h4>
+      <%= form_tag(map_search_path, method: "get") do %>
+          <div class="btn-group" data-toggle="buttons" >
+            <label id="one" for="one-km" class="btn btn-default"><%= radio_button_tag :distance, 1.0,id: "one-km", :style=>"display:none;" %>
+              1 km</label>
+
+            <label id="two" for="two-km" class="btn btn-default"><%= radio_button_tag :distance, 2.0, :id=>"two-km", :style=>"display:none;" %>
+              2 km</label>
+
+            <label id="five" for="five-km" class="btn btn-default"><%= radio_button_tag :distance, 5.0,  :id=>"five-km", :style=>"display:none;" %>
+              5 km</label>
+
+            <label id="ten" for="ten-km" class="btn btn-default"><%= radio_button_tag :distance, 10.0, :id=>"ten-km", :style=>"display:none;" %>
+              10 km</label>
+        </div>
+          <div class="row">
+            <%= submit_tag "Search",
+                          class: "btn btn-primary", style: "margin-top:10px; margin-left: 15px;" %>
+          </div>
+      <% end %>
+    </div>
+
+
+</div>
+
+<%= javascript_tag do %>
+    <% distance = params[:distance] %>
+    <% if distance.to_i == 1 %>
+        $('#one').addClass('active')
+    <% elsif distance.to_i == 2 %>
+        $('#two').addClass('active')
+    <% elsif distance.to_i == 5 %>
+        $('#five').addClass('active')
+    <% elsif distance.to_i == 10 %>
+        $('#ten').addClass('active')
+    <% end %>
+<% end %>
