@@ -4,7 +4,6 @@
   <title><%= yield(:title)%></title>
   <%= stylesheet_link_tag 'application', media: 'all',
                           'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
   <script src="http://maps.googleapis.com/maps/api/js"></script>
@@ -14,8 +13,14 @@
     <%= notice_message %>
     <div class="container">
       <%= yield %>
+<<<<<<< HEAD
 
     </div>
+=======
+      <%= render 'layouts/footer' %>
+    </div>
+
+>>>>>>> 67812c69070f5a455283c9efa5ef7f0fbfdbd74f
 </body>
 <%= render 'layouts/footer' %>
 </html>

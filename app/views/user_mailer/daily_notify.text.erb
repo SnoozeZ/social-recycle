@@ -2,6 +2,6 @@ Good evening, <%= @user.username %>!
 ===============================================
 New users have dibs your following items:
 <% @item.each do |i| %>
-    User <%= i.user_id %> has dibsed you item: <%= i.item_id %>.
+    User <%= i.user_id %> has dibsed you item: [<%= i.title %>].
 <% end %>
 Please refer to your personal page to see the detail: http://0.0.0.0/users/<%= @user.id%>
