@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root    'home#welcome'
+  root 'home#welcome'
   get 'sessions/new'
   get 'signup' => 'users#new'
 
@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   post 'post_item' => 'items#create'
   get 'search_item' => 'items#search'
   get 'map_search' => 'map#mapsearch'
-
-
-
 
   resources :users
   resources :items
