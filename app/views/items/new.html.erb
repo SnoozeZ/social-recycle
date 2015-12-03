@@ -11,10 +11,20 @@
         <%= f.text_area :description %>
 
         <%= f.label :timeout %>
-        <%= f.date_select :timeout %>
+        <div class="row">
+          <%= f.date_select :timeout, {start_year: Date.current.year}, {style: "display: inline; width: auto;margin-left:15px;", id: "date"}%>
+        </div>
+
 
         <%= f.label :category_id %>
         <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true%>
+
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+
+        <div id="map">
+
+        </div>
 
         <%= f.label :avatar, "Upload Image" %>
         <div class="fileinput fileinput-new" data-provides="fileinput">
