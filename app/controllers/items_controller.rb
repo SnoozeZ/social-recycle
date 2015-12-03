@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    if cat_params[:category] == "0"
+    if !cat_params[:category] || cat_params[:category] == "0"
       @items = Item.where(is_valid: true, status: 0).paginate(page: params[:page])
     else
       @items = Item.where(is_valid: true, status: 0, category_id: cat_params[:category].to_i).paginate(page: params[:page])
