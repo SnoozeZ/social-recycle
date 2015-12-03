@@ -23,7 +23,7 @@
     </row>
 
     <%= link_to "Post Item", {controller: 'items', action: 'new'}, id: 'post_item'%>
-    <%= link_to "Find Item", {controller: 'items', action: 'index'}, id: 'find_item'%>
+    <%= link_to "Find Item", {controller: 'items', action: 'index', :type => {:category=> 0}}, id: 'find_item'%>
   </div>
 
   <div id="footer">
