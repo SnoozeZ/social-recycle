@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     @user.reg_time = Time.new
     if @user.save
       #notify the user by mail
-      UserMailer.welcome_email(@user).deliver_now
+      #UserMailer.welcome_email(@user).deliver_now
+      UserMailer.verify_email(@user).deliver_now
 
       log_in @user
       flash[:success]="Welcome to Social Recycle!"

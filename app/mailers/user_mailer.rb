@@ -20,4 +20,9 @@ class UserMailer < ApplicationMailer
     @item = item
     mail(from: 'social.recycle.cse210@gmail.com', to: @receiver.email, subject: 'Congratulation! You got new item!')
   end
+
+  def verify_email(user)
+    @user = user
+    mail(from: 'social.recycle.cse210@gmail.com', to: @user.email, subject: 'Please verify your UCSD email address!')
+  end
 end
