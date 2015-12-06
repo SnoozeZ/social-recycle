@@ -12,14 +12,19 @@
           <input id="address" type="textbox" value="UCSD, San Diego, CA"  style="width:80%">
           <input id="submit" type="button" value="Search" class="btn btn-primary" style="margin-left:5px;margin-right:5px;margin-bottom:5px;width:18%">  
         </div>
+        <input id="lat" type="textbox" value=""  style="width:30%;display:none">
+        <input id="lng" type="textbox" value=""  style="width:30%;display:none">
   <div id="googleMap" style="width:100%;height:400px;">
       </div>
   <script>
+    var markers = [];
+    var currentPos = null;
     function placeMarker(map, location) {
       var marker = new google.maps.Marker({
         position: location,
         map: map,
       });
+      markers.push(marker);
       google.maps.event.addListener(marker,'click',function() {
         alert("click on marker!");
         window.location.href = "http://www.baidu.com"
@@ -35,10 +40,21 @@
       });
       infowindow.open(map,marker);
     }
+    function clearMarkers() {
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+      }
+    }
+    function showMarkers() {
+      setMapOnAll(map);
+    }
     function codeAddress(geocoder, map) {
       var address = document.getElementById('address').value;
       // var geocoder = new google.maps.Geocoder();
-      geocoder.geocode( { 'address': address}, function(results, status) {
+      clearMarkers();
+      markers = [];
+      geocoder.geocode( { 'address': address}, 
+        function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           for (i in results)
           {
@@ -54,8 +70,10 @@
         }
       });
     }
-    function searchByDis(dis, data) {
+    function searchByDis(dis) {
       console.log(dis+" miles searching...")
+      var test = <%=j @test %>
+      console.log(test);
     }
     function initialize() {
       var mapProp = {
@@ -93,7 +111,9 @@
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
-
+          currentPos = pos;
+          document.getElementById('lat').value = pos.lat
+          document.getElementById('lng').value = pos.lng
           infoWindow.setPosition(pos);
           infoWindow.setContent('You are here.');
           map.setCenter(pos);
@@ -121,7 +141,7 @@
       <h4>Distance</h4>
       <%= form_tag(map_search_path, method: "get") do %>
           <div class="btn-group" data-toggle="buttons" >
-            <label id="one" for="one-km" class="btn btn-default"><%= radio_button_tag :distance, 1.0,id: "one-km", :style=>"display:none;" %>
+            <label id="one" for="one-km" class="btn btn-default"><%= radio_button_tag :distance, 1.0, :id=>"one-km", :style=>"display:none;" %>
               1 km</label>
 
             <label id="two" for="two-km" class="btn btn-default"><%= radio_button_tag :distance, 2.0, :id=>"two-km", :style=>"display:none;" %>
@@ -134,8 +154,7 @@
               10 km</label>
         </div>
           <div class="row">
-            <%= submit_tag "Search",
-                          class: "btn btn-primary", style: "margin-top:10px; margin-left: 15px;" %>
+            <%= submit_tag "Search",class: "btn btn-primary", style: "margin-top:10px; margin-left: 15px;" %>
           </div>
       <% end %>
     </div>
@@ -147,15 +166,15 @@
     <% distance = params[:distance] %>
     <% if distance.to_i == 1 %>
         $('#one').addClass('active')
-        searchByDis(1, null)
+        searchByDis(1)
     <% elsif distance.to_i == 2 %>
         $('#two').addClass('active')
-        searchByDis(2, null)
+        searchByDis(2)
     <% elsif distance.to_i == 5 %>
         $('#five').addClass('active')
-        searchByDis(5, null)
+        searchByDis(5)
     <% elsif distance.to_i == 10 %>
         $('#ten').addClass('active')
-        searchByDis(10, null)
+        searchByDis(10)
     <% end %>
 <% end %>
