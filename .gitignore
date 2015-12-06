@@ -56,6 +56,6 @@ build/
 .DS_Store
 .idea/
 
-/public/uploads/item
+public/uploads/item
 Gemfile.lock
 *.jpg
