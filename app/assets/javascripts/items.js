@@ -19,5 +19,45 @@ function clear2() {
     if(content == "") {
         return false;
     }
-
 }
+
+var itemPosition;
+function initMap() {
+    if(navigator.geolocation) {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            //center: {lat: -34.397, lng: 150.644}
+        });
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            map.setCenter(geolocate);
+        });
+
+        var geocoder = new google.maps.Geocoder();
+        document.getElementById('locate').addEventListener('click', function() {
+            geocodeAddress(geocoder, map);
+        });
+    } else {
+        document.getElementById('map').innerHTML="No Geolocation Support";
+    }
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+    var address = document.getElementById('item_address').value;
+    geocoder.geocode({'address': address}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: resultsMap,
+                position: results[0].geometry.location
+            });
+            itemPosition = results[0].geometry.location;
+            $('#item-lng').val = itemPosition.coords.longitude;
+            $('#item-lat').val = itemPosition.coords.latitude;
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+}
+

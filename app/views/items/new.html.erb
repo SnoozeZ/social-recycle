@@ -19,10 +19,13 @@
         <%= f.label :category_id %>
         <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true%>
 
-        <%= f.label :address %>
-        <%= f.text_field :address %>
+        <%= f.label :address, style: "width: 100%"%>
+        <%= f.text_field :address, style: "width: 85%"%>
+        <%= button_tag "Locate", type: 'button', id: "locate" %>
+        <%= f.hidden_field :lng %>
+        <%= f.hidden_field :lat %>
 
-        <div id="map">
+        <div id="map" style="width:90%; height: 300px;margin:10px;">
 
         </div>
 
@@ -45,3 +48,10 @@
 
   </div>
 </div>
+
+<script>
+    $(document).on('ready page:load', function(event) {
+        // apply non-idempotent transformations to the body
+        initMap();
+    });
+</script>
