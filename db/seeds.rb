@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #for test - by weiqi
+=begin
 User.create!(username:  "Weiqi Zhang",
              email: "zhangweiqi357@gmail.com",
              password:              "597dF12@@489",
@@ -19,6 +20,16 @@ User.create!(username:  "Weiqi Zhang",
 
 User.create!(username:  "Example User",
              email: "example@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             reg_time: "2014-02-02",
+             phone: "8383838",
+             activated: true,
+             activated_at: Time.zone.now)
+=end
+
+User.create!(username:  "Example User",
+             email: "example@ucsd.edu",
              password:              "foobar",
              password_confirmation: "foobar",
              reg_time: "2014-02-02",
@@ -71,11 +82,6 @@ Item.create!(title: "Everything",
                lat: 11.112,
                lng: 32.32,
                post_date: Time.zone.now,
-               user_id: 1,
-
-               category_id: 1,
-               address: "Gilman Drive",
-               avatar: open("public/uploads/20130709002417487.jpg"),
 
                user_id: n + 1,
                category_id: 1,
