@@ -54,6 +54,9 @@
         }
       });
     }
+    function searchByDis(dis, data) {
+      console.log(dis+" miles searching...")
+    }
     function initialize() {
       var mapProp = {
         zoom:15,
@@ -144,12 +147,15 @@
     <% distance = params[:distance] %>
     <% if distance.to_i == 1 %>
         $('#one').addClass('active')
-        console.log('');
+        searchByDis(1, null)
     <% elsif distance.to_i == 2 %>
         $('#two').addClass('active')
+        searchByDis(2, null)
     <% elsif distance.to_i == 5 %>
         $('#five').addClass('active')
+        searchByDis(5, null)
     <% elsif distance.to_i == 10 %>
         $('#ten').addClass('active')
+        searchByDis(10, null)
     <% end %>
 <% end %>
