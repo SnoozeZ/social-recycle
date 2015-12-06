@@ -12,8 +12,8 @@
           <input id="address" type="textbox" value="UCSD, San Diego, CA"  style="width:80%">
           <input id="submit" type="button" value="Search" class="btn btn-primary" style="margin-left:5px;margin-right:5px;margin-bottom:5px;width:18%">  
         </div>
-        <input id="lat" type="textbox" value=""  style="width:30%;display:none">
-        <input id="lng" type="textbox" value=""  style="width:30%;display:none">
+<!--         <input id="lat" type="textbox" value=""  style="width:30%;display:none">
+        <input id="lng" type="textbox" value=""  style="width:30%;display:none"> -->
   <div id="googleMap" style="width:100%;height:400px;">
       </div>
   <script>
@@ -72,8 +72,8 @@
     }
     function searchByDis(dis) {
       console.log(dis+" miles searching...")
-      var test = <%=j @test %>
-      console.log(test);
+      var results = <%=j @positions %>
+      console.log(results);
     }
     function initialize() {
       var mapProp = {
@@ -131,7 +131,7 @@
     });
     // window.onload=initialize;
     // google.maps.event.addDomListener(window, 'load', initialize);
-    console.log('worinigedaxuebi');
+    console.log('I\'working well');
     // window.location.reload();
   </script>
 </div>
@@ -140,6 +140,8 @@
     <div class="row" style="margin-top:20px;">
       <h4>Distance</h4>
       <%= form_tag(map_search_path, method: "get") do %>
+          <%= text_field :lat, "lat", :id=>"lat", :style=>"display:none;" %>
+          <%= text_field :lng, "lng", :id=>"lng", :style=>"display:none;" %>
           <div class="btn-group" data-toggle="buttons" >
             <label id="one" for="one-km" class="btn btn-default"><%= radio_button_tag :distance, 1.0, :id=>"one-km", :style=>"display:none;" %>
               1 km</label>
