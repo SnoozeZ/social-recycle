@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
   #respond_to :js
   def new
+    if !current_user
+      redirect_to signin_url
+    end
     @item = Item.new
   end
 
