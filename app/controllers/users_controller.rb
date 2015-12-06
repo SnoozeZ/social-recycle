@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       #notify the user by mail
       #UserMailer.welcome_email(@user).deliver_now
       UserMailer.verify_email(@user).deliver_now
-
+      #UserMailer.account_activation(@user).deliver_now
       log_in @user
       flash[:success]="Welcome to Social Recycle!"
       redirect_to @user

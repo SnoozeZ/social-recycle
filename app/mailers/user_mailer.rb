@@ -25,4 +25,17 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(from: 'social.recycle.cse210@gmail.com', to: @user.email, subject: 'Please verify your UCSD email address!')
   end
+
+  #def account_activation(user)
+  #  @user = user
+  #  mail(from: 'social.recycle.cse210@gmail.com', to: @user.email, subject: 'Account activation')
+  #  #mail to: user.email, subject: "Account activation"
+  #end
+
+  def password_reset
+    @greeting = "Hi"
+
+    mail to: "to@example.org"
+  end
+
 end
