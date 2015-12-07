@@ -61,12 +61,12 @@ Item.create!(title: "Everything",
              description: "descritpion",
              timeout: Time.zone.now,
              is_valid: true,
-             lat: 11.112,
-             lng: 32.32,
+             lat: 32.8866,
+             lng: -117.24,
              post_date: Time.zone.now,
              user_id: "1",
              category_id: 1,
-             address: "Gilman Drive",
+             address: "UCSD",
              avatar: open("public/uploads/abc.jpg")
 )
 
@@ -79,13 +79,13 @@ Item.create!(title: "Everything",
                description: descritpion,
                timeout: Time.zone.now,
                is_valid: true,
-               lat: 11.112,
-               lng: 32.32,
+               lat: 32.8866,
+               lng: -117.24,
                post_date: Time.zone.now,
 
                user_id: n + 1,
                category_id: 1,
-               address: "Gilman Drive",
+               address: "UCSD",
                avatar: open("public/uploads/abc.jpg")
   )
 end

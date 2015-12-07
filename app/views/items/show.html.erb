@@ -13,6 +13,7 @@
       <p><span style="font-weight : bold"> Category: </span><%= @item.category.name %></p>
       <p><span style="font-weight : bold"> Giver: </span><%= link_to @item.user.username, @item.user %></p>
       <p><span style="font-weight : bold"> Descrition: </span><%= @item.description %></p>
+      <p><span style="font-weight : bold"> Address: </span><%= @item.address %></p>
 
       <% id = @item.id %>
       <% uid = @item.user_id %>

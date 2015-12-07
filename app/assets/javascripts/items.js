@@ -61,6 +61,10 @@ function geocodeAddress(geocoder, resultsMap) {
             document.getElementById('item_lat').value = itemPosition.lat();
             lng = itemPosition.lng();
             lat = itemPosition.lat();
+        } else if(status == google.maps.GeocoderStatus.ZERO_RESULTS){
+            document.getElementById('map-status').value = "No result for your input!";
+            //console.log()
+            alert('no result');
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }
