@@ -9,10 +9,11 @@
     </div>
     <div class="col-xs-6">
       <h1><%= @item.title %></h1>
-      <p><span style="font-weight : bold"> Expired at: </span><%= @item.timeout %>
+      <p><span style="font-weight : bold"> Expired at: </span><%= @item.expire_time %>
       <p><span style="font-weight : bold"> Category: </span><%= @item.category.name %></p>
       <p><span style="font-weight : bold"> Giver: </span><%= link_to @item.user.username, @item.user %></p>
       <p><span style="font-weight : bold"> Descrition: </span><%= @item.description %></p>
+      <p><span style="font-weight : bold"> Address: </span><%= @item.address %></p>
 
       <% id = @item.id %>
       <% uid = @item.user_id %>
@@ -25,7 +26,7 @@
                 <% if !current_user.dibs.exists?(:item_id => id) %>
                     <%= button_to "I Want!", {:controller => "dibs", :action => "create", :dib=> {:item_id => id, :user_id => current_user.id}}, :method => :post, class: "btn btn-success", style: "width: 100%" %>
                 <% else %>
-                    <%= button_to "Withdraw!", {:controller => "dibs", :action => "destroy", :dib => {:item_id => id, :user_id => current_user.id}}, :method => :post, class: "btn btn-danger", style: "width: 100%" %>
+                    <%= button_to "Withdraw!", {:controller => "dibs", :action => "destro", :dib => {:item_id => id, :user_id => current_user.id}}, :method => :post, class: "btn btn-danger", style: "width: 100%" %>
                 <% end %>
             <% end %>
         <% else %>

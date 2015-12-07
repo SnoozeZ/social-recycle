@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :title
       t.string :description
-      t.date :timeout
+      t.date :expire_time
       t.boolean :is_valid, default: true
       t.integer :status, default: 0  #0: newly posted, 1: given, 2: out_of_date
       t.float :lat
