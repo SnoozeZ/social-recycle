@@ -45,7 +45,7 @@
         console.log(lat+'\n'+current_pos.lat+'\n'+lng+'\n'+current_pos.lng)
         var distance = Math.abs(lat-current_pos.lat)*85+Math.abs(lng-current_pos.lng)*111.7;
         console.log(distance)
-        document.getElementById('dis').innerHTML = distance;
+        document.getElementById('dis').innerHTML = distance + " km";
       }
       else{
         console.log("Nope.")

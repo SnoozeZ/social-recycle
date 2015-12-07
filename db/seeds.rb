@@ -84,6 +84,7 @@ Item.create!(title: "Beautiful clothes",
 )
 
 
+=begin
 10.times do |n|
   title = Faker::Name.name
   descritpion = "aslfdaslkdfjaslfjaslkfjaslfjsa"
@@ -101,6 +102,7 @@ Item.create!(title: "Beautiful clothes",
                avatar: open("public/uploads/abc.jpg")
   )
 end
+=end
 
 
 #for test - weiqi
