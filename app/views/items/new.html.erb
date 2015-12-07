@@ -10,20 +10,18 @@
         <%= f.label :description %>
         <%= f.text_area :description %>
 
-        <%= f.label :timeout %>
-        <div class="row">
-          <%= f.date_select :timeout, {start_year: Date.current.year}, {style: "display: inline; width: auto;margin-left:15px;", id: "date"}%>
-        </div>
+        <%= f.label :timeout, style: "width:100%"%>
+        <%= f.date_select :timeout, {start_year: Date.current.year}, {style: "display: inline; width: auto;margin-left:15px;"}%>
 
 
-        <%= f.label :category_id %>
+        <%= f.label :category_id, style: "width: 100%"%>
         <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true%>
 
         <%= f.label :address, style: "width: 100%"%>
         <%= f.text_field :address, style: "width: 85%"%>
         <%= button_tag "Locate", type: 'button', id: "locate" %>
-        <%= f.hidden_field :lng %>
-        <%= f.hidden_field :lat %>
+        <%= f.text_field :lng, style:"display:none" %>
+        <%= f.text_field :lat, style:"display:none" %>
 
         <div id="map" style="width:90%; height: 300px;margin:10px;">
 

@@ -21,7 +21,8 @@ function clear2() {
     }
 }
 
-var itemPosition;
+var lng;
+var lat;
 function initMap() {
     if(navigator.geolocation) {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -52,9 +53,14 @@ function geocodeAddress(geocoder, resultsMap) {
                 map: resultsMap,
                 position: results[0].geometry.location
             });
-            itemPosition = results[0].geometry.location;
-            $('#item-lng').val = itemPosition.coords.longitude;
-            $('#item-lat').val = itemPosition.coords.latitude;
+            var itemPosition = results[0].geometry.location;
+
+            document.getElementById('item_lng').value = itemPosition.lng();
+            console.log(itemPosition.lat());
+            console.log(itemPosition.lng());
+            document.getElementById('item_lat').value = itemPosition.lat();
+            lng = itemPosition.lng();
+            lat = itemPosition.lat();
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }

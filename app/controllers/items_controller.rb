@@ -38,7 +38,7 @@ class ItemsController < ApplicationController
 
     def item_params
       params.require(:item).permit(:title, :description, :timeout,
-                                   :avatar, :category_id, :avatar_cache, :status)
+                                   :avatar, :category_id, :avatar_cache, :status, :lng, :lat)
     end
     def cat_params
       params.require(:type).permit(:category)
