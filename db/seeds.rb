@@ -56,6 +56,27 @@ Category.create!(name: "Furnitures")
 Category.create!(name: "Books")
 Category.create!(name: "Others")
 
+
+
+
+50.times do |n|
+  title = Faker::Name.name
+  descritpion = "aslfdaslkdfjaslfjaslkfjaslfjsa"
+  Item.create!(title: title,
+               description: descritpion,
+               expire_time: Time.zone.now,
+               is_valid: true,
+               lat: 32.8866,
+               lng: -117.24,
+               post_date: Time.zone.now,
+
+               user_id: n + 1,
+               category_id: (n % 4) + 1,
+               address: "UCSD",
+               avatar: open("public/uploads/abc.jpg")
+  )
+end
+
 #for test - by weiqi
 Item.create!(title: "2 Chairs",
              description: "2 chairs, come to pick me",
@@ -82,27 +103,6 @@ Item.create!(title: "Beautiful clothes",
              address: "Judicial Dr.",
              avatar: open("public/uploads/Clothes.jpg")
 )
-
-
-=begin
-10.times do |n|
-  title = Faker::Name.name
-  descritpion = "aslfdaslkdfjaslfjaslkfjaslfjsa"
-  Item.create!(title: title,
-               description: descritpion,
-               expire_time: Time.zone.now,
-               is_valid: true,
-               lat: 32.8866,
-               lng: -117.24,
-               post_date: Time.zone.now,
-
-               user_id: n + 1,
-               category_id: (n % 4) + 1,
-               address: "UCSD",
-               avatar: open("public/uploads/abc.jpg")
-  )
-end
-=end
 
 
 #for test - weiqi

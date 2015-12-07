@@ -107,7 +107,7 @@
                 <tbody>
                 <% @item.passive_dibs.each do |who| %>
                     <tr>
-                      <td><%= link_to(User.find(who.user_id).username, user_path(uid)) %></td>
+                      <td><%= link_to(User.find(who.user_id).username, user_path(who.user_id)) %></td>
                       <td><%= button_to("Give!", {:controller => "dibs", :action => "give", :dib => {:item_id => id, :user_id => who.user_id}}, class: "btn btn-default btn-xs", data: { confirm:"Give to " + User.find(who.user_id).username + ", are you sure?"}) %></td>
                     </tr>
                 <% end %>

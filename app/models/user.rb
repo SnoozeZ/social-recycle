@@ -20,7 +20,7 @@
 class User < ActiveRecord::Base
   has_many :items, dependent: :destroy
   before_save {self.email = email.downcase}
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   before_create :create_activation_digest
   validates :username, presence: true, length: {maximum: 50}
   has_many :dibs, class_name: "Dib",
@@ -70,6 +70,15 @@ class User < ActiveRecord::Base
     @user.each do |u|
       UserMailer.daily_notify(u).deliver_now
     end
+  end
+
+  def create_reset_digest
+    self.reset_token  = User.new_token
+    self.reset_digest = User.digest(reset_token)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
   end
 
   private
