@@ -95,24 +95,6 @@
       for (var i = 0; i < data.length; i++) {
         placeMarker(map, data[i])
       }
-      // var myCenter=new google.maps.LatLng(51.508742,-0.120850);
-      // codeAddress();
-      // var marker=new google.maps.Marker({
-      //   position:myCenter,
-      //   animation:google.maps.Animation.BOUNCE
-      // });
-
-      // marker.setMap(map);
-      // newMarker.setMap(map);
-      // var infowindow = new google.maps.InfoWindow({
-      //   content:"Your Place Here"
-      // });
-      // google.maps.event.addListener(marker, 'click', function() {
-      //   infowindow.open(map,marker);
-      // });
-      // google.maps.event.addListener(map, 'click', function(event) {
-      //   placeMarker(event.latLng);
-      // });
       var infoWindow = new google.maps.InfoWindow({map: map});
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -121,6 +103,7 @@
             lng: position.coords.longitude
           };
           currentPos = pos;
+          console.log("lat:"+pos.lat+" lng:"+pos.lng)
           document.getElementById('lat').value = pos.lat
           document.getElementById('lng').value = pos.lng
           infoWindow.setPosition(pos);
