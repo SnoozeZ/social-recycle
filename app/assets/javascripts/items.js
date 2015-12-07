@@ -59,12 +59,15 @@ function geocodeAddress(geocoder, resultsMap) {
             console.log(itemPosition.lat());
             console.log(itemPosition.lng());
             document.getElementById('item_lat').value = itemPosition.lat();
-            lng = itemPosition.lng();
-            lat = itemPosition.lat();
+            document.getElementById('map_status').innerHTML = "<p class=\"bg-success\">Valid!</p>";
+
+            var infoWindow = new google.maps.InfoWindow({
+                map: map,
+                content: results[0].formatted_address});
+            //infoWindow.setPosition(itemPosition);
+            infoWindow.open(resultsMap, marker);
         } else if(status == google.maps.GeocoderStatus.ZERO_RESULTS){
-            document.getElementById('map-status').value = "No result for your input!";
-            //console.log()
-            alert('no result');
+            document.getElementById('map_status').innerHTML = "<p class=\"bg-danger\">No result for your input!</p>";
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }

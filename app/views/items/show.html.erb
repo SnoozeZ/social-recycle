@@ -9,7 +9,7 @@
     </div>
     <div class="col-xs-6">
       <h1><%= @item.title %></h1>
-      <p><span style="font-weight : bold"> Expired at: </span><%= @item.timeout %>
+      <p><span style="font-weight : bold"> Expired at: </span><%= @item.expire_time %>
       <p><span style="font-weight : bold"> Category: </span><%= @item.category.name %></p>
       <p><span style="font-weight : bold"> Giver: </span><%= link_to @item.user.username, @item.user %></p>
       <p><span style="font-weight : bold"> Descrition: </span><%= @item.description %></p>

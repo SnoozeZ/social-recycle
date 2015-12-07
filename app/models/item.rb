@@ -34,6 +34,8 @@ class Item < ActiveRecord::Base
   validates :description, presence: true, length: {maximum: 1024}
   validates :category, presence: true
   validates :address, presence: true
+  validates :lat, presence: true
+  validates :lng, presence: true
 
   #ordering the item with default_scope
   default_scope -> { order(created_at: :desc)}

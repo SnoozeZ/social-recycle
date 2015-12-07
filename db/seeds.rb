@@ -59,7 +59,7 @@ Category.create!(name: "Others")
 #for test - by weiqi
 Item.create!(title: "Everything",
              description: "descritpion",
-             timeout: Time.zone.now,
+             expire_time: Time.zone.now,
              is_valid: true,
              lat: 32.8866,
              lng: -117.24,
@@ -77,7 +77,7 @@ Item.create!(title: "Everything",
   descritpion = "aslfdaslkdfjaslfjaslkfjaslfjsa"
   Item.create!(title: title,
                description: descritpion,
-               timeout: Time.zone.now,
+               expire_time: Time.zone.now,
                is_valid: true,
                lat: 32.8866,
                lng: -117.24,

@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20151129230442) do
   create_table "items", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.date     "timeout"
+    t.date     "expire_time"
     t.boolean  "is_valid",    default: true
     t.integer  "status",      default: 0
     t.float    "lat"

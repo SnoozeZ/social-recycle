@@ -14,6 +14,6 @@ class PostItemTest < ActionDispatch::IntegrationTest
     get post_item_path
     assert_template 'items/new'
     item = Item.new(name: "item1",
-    description: "asdfasdf", timeout: "2015-12-21")
+    description: "asdfasdf", expire_time: "2015-12-21")
   end
 end

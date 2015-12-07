@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
       redirect_to signin_url
     end
     @item = Item.new
+    @item.post_date = Date.today();
   end
 
   def show
@@ -37,7 +38,7 @@ class ItemsController < ApplicationController
   private
 
     def item_params
-      params.require(:item).permit(:title, :description, :timeout,
+      params.require(:item).permit(:title, :description, :expire_time,
                                    :avatar, :category_id, :avatar_cache, :status, :lng, :lat, :address)
     end
     def cat_params
