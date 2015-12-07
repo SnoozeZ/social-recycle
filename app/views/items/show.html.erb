@@ -1,4 +1,28 @@
 <% provide(:title, @item.title) %>
+<script>
+    function initialize() {
+      var lat = <%=j @item.lat.to_json %>
+      var lng = <%=j @item.lng.to_json %>
+      var mapProp = {
+        zoom:15,
+        mapTypeId:google.maps.MapTypeId.ROADMAP,
+        center:new google.maps.LatLng(lat, lng)
+      };
+      var c_map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+      var infoWindow = new google.maps.InfoWindow({map: c_map});
+      var pos = {
+        lat: lat,
+        lng: lng
+      };
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Item\'s here.');
+      c_map.setCenter(pos);
+    }
+    $(document).on('ready page:load', function(event) {
+      initialize();
+    });
+</script>
 <div class="container-fluid" xmlns:style="http://www.w3.org/1999/xhtml">
   <div class="row">
     <div class="col-xs-6">
@@ -57,6 +81,8 @@
             </div>
         <% end %>
     <% end %>
+  </div>
+  <div id="map" style="width:90%; height: 300px;margin:10px;">
   </div>
 </div>
 
