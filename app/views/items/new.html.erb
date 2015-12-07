@@ -48,6 +48,8 @@ function geocodeAddress(geocoder, resultsMap) {
             infoWindow.open(resultsMap, marker);
         } else if(status == google.maps.GeocoderStatus.ZERO_RESULTS){
             document.getElementById('map_status').innerHTML = "<p class=\"bg-danger\">No result for your input!</p>";
+            document.getElementById('item_lng').value = null;
+            document.getElementById('item_lat').value = null;
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }

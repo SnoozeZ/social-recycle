@@ -32,7 +32,7 @@ User.create!(username:  "Example User",
              email: "example@ucsd.edu",
              password:              "foobar",
              password_confirmation: "foobar",
-             reg_time: "2014-02-02",
+             reg_time: "2015-12-02",
              phone: "8383838",
              activated: true,
              activated_at: Time.zone.now)
@@ -45,7 +45,7 @@ User.create!(username:  "Example User",
                email: email,
                password:              password,
                password_confirmation: password,
-               reg_time: "2014-02-02",
+               reg_time: "2015-12-02",
                phone: "8383838",
                activated: true,
                activated_at: Time.zone.now)
@@ -57,9 +57,22 @@ Category.create!(name: "Books")
 Category.create!(name: "Others")
 
 #for test - by weiqi
-Item.create!(title: "Everything",
-             description: "descritpion",
-             expire_time: Time.zone.now,
+Item.create!(title: "2 Chairs",
+             description: "2 chairs, come to pick me",
+             expire_time: Date.tomorrow,
+             is_valid: true,
+             lat: 32.8866,
+             lng: -117.24,
+             post_date: Time.zone.now,
+             user_id: "1",
+             category_id: 2,
+             address: "UCSD",
+             avatar: open("public/uploads/Chair.jpg")
+)
+
+Item.create!(title: "Beautiful clothes",
+             description: "Clothes",
+             expire_time: Date.tomorrow,
              is_valid: true,
              lat: 32.8866,
              lng: -117.24,
@@ -67,12 +80,11 @@ Item.create!(title: "Everything",
              user_id: "1",
              category_id: 1,
              address: "UCSD",
-             avatar: open("public/uploads/abc.jpg")
+             avatar: open("public/uploads/Clothes.jpg")
 )
 
 
-
-100.times do |n|
+10.times do |n|
   title = Faker::Name.name
   descritpion = "aslfdaslkdfjaslfjaslkfjaslfjsa"
   Item.create!(title: title,
@@ -84,11 +96,12 @@ Item.create!(title: "Everything",
                post_date: Time.zone.now,
 
                user_id: n + 1,
-               category_id: 1,
+               category_id: (n % 4) + 1,
                address: "UCSD",
                avatar: open("public/uploads/abc.jpg")
   )
 end
+
 
 #for test - weiqi
 Dib.create!(
