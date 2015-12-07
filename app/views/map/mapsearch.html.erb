@@ -18,7 +18,11 @@
     var markers = [];
     var currentPos = null;
     var map;
+    var data = []
+    var distance = 1;
     function placeMarker(map, location) {
+      // console.log(location)
+      console.log("lat:"+location.lat()+" lng:"+location.lng())
       var marker = new google.maps.Marker({
         position: location,
         map: map,
@@ -59,18 +63,17 @@
           {
             placeMarker(map, results[i].geometry.location)
           }
-          // map.setCenter(results[0].geometry.location);
-          // var marker = new google.maps.Marker({
-          //   map: map,
-          //   position: results[0].geometry.location
-          // });
         } else {
           alert("Geocode was not successful for the following reason: " + status);
         }
       });
     }
-    function searchByDis(dis) {
+    function searchByDis(dis, tmpdata) {
       console.log(dis+" miles searching...")
+      clearMarkers();
+      markers = [];
+      data = tmpdata;
+      distance = dis;
     }
     function initialize() {
       var mapProp = {
@@ -83,24 +86,9 @@
       document.getElementById('submit').addEventListener('click', function() {
         codeAddress(geocoder, map);
       });
-      // var myCenter=new google.maps.LatLng(51.508742,-0.120850);
-      // codeAddress();
-      // var marker=new google.maps.Marker({
-      //   position:myCenter,
-      //   animation:google.maps.Animation.BOUNCE
-      // });
-
-      // marker.setMap(map);
-      // newMarker.setMap(map);
-      // var infowindow = new google.maps.InfoWindow({
-      //   content:"Your Place Here"
-      // });
-      // google.maps.event.addListener(marker, 'click', function() {
-      //   infowindow.open(map,marker);
-      // });
-      // google.maps.event.addListener(map, 'click', function(event) {
-      //   placeMarker(event.latLng);
-      // });
+      for (var i = 0; i < data.length; i++) {
+        placeMarker(map, data[i])
+      }
       var infoWindow = new google.maps.InfoWindow({map: map});
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -109,6 +97,17 @@
             lng: position.coords.longitude
           };
           currentPos = pos;
+          var circle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            center: currentPos,
+            radius: 1000*distance
+          });
+          console.log("Your pos lat:"+pos.lat+" lng:"+pos.lng)
           document.getElementById('lat').value = pos.lat
           document.getElementById('lng').value = pos.lng
           infoWindow.setPosition(pos);
@@ -162,25 +161,27 @@
 </div>
 
 <%= javascript_tag do %>
-    <% distance = params[:distance] %>
-    <% if distance.to_i == 1 %>
-        $('#one').addClass('active')
-        searchByDis(1)
-    <% elsif distance.to_i == 2 %>
-        $('#two').addClass('active')
-        searchByDis(2)
-    <% elsif distance.to_i == 5 %>
-        $('#five').addClass('active')
-        searchByDis(5)
-    <% elsif distance.to_i == 10 %>
-        $('#ten').addClass('active')
-        searchByDis(10)
-    <% end %>
+    var data = []
     <% if @positions %> 
       <% @positions.each do |p| %>
         var lat = <%=j p.lat.to_json %>
         var lng = <%=j p.lng.to_json %>
-        console.log(lat+' '+lng)
+        var datum = new google.maps.LatLng(lat, lng)
+        data.push(datum)
       <% end %>
+    <% end %>
+    <% distance = params[:distance] %>
+    <% if distance.to_i == 1 %>
+        $('#one').addClass('active')
+        searchByDis(1, data)
+    <% elsif distance.to_i == 2 %>
+        $('#two').addClass('active')
+        searchByDis(2, data)
+    <% elsif distance.to_i == 5 %>
+        $('#five').addClass('active')
+        searchByDis(5, data)
+    <% elsif distance.to_i == 10 %>
+        $('#ten').addClass('active')
+        searchByDis(10, data)
     <% end %>
 <% end %>
