@@ -12,13 +12,12 @@
           <input id="address" type="textbox" value="UCSD, San Diego, CA"  style="width:80%">
           <input id="submit" type="button" value="Search" class="btn btn-primary" style="margin-left:5px;margin-right:5px;margin-bottom:5px;width:18%">  
         </div>
-<!--         <input id="lat" type="textbox" value=""  style="width:30%;display:none">
-        <input id="lng" type="textbox" value=""  style="width:30%;display:none"> -->
   <div id="googleMap" style="width:100%;height:400px;">
       </div>
   <script>
     var markers = [];
     var currentPos = null;
+    var map;
     function placeMarker(map, location) {
       var marker = new google.maps.Marker({
         position: location,
@@ -72,8 +71,6 @@
     }
     function searchByDis(dis) {
       console.log(dis+" miles searching...")
-      var results = <%=j @positions %>
-      console.log(results);
     }
     function initialize() {
       var mapProp = {
@@ -81,7 +78,7 @@
         mapTypeId:google.maps.MapTypeId.ROADMAP,
         center:new google.maps.LatLng(32.877348, -117.233825)
       };
-      var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+      map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
       var geocoder = new google.maps.Geocoder();
       document.getElementById('submit').addEventListener('click', function() {
         codeAddress(geocoder, map);
@@ -178,5 +175,12 @@
     <% elsif distance.to_i == 10 %>
         $('#ten').addClass('active')
         searchByDis(10)
+    <% end %>
+    <% if @positions %> 
+      <% @positions.each do |p| %>
+        var lat = <%=j p.lat.to_json %>
+        var lng = <%=j p.lng.to_json %>
+        console.log(lat+' '+lng)
+      <% end %>
     <% end %>
 <% end %>
