@@ -18,7 +18,9 @@
     var markers = [];
     var currentPos = null;
     var map;
+    var data = []
     function placeMarker(map, location) {
+      console.log(location)
       var marker = new google.maps.Marker({
         position: location,
         map: map,
@@ -69,8 +71,15 @@
         }
       });
     }
-    function searchByDis(dis) {
+    function searchByDis(dis, tmpdata) {
       console.log(dis+" miles searching...")
+      clearMarkers();
+      markers = [];
+      data = tmpdata;
+      // for (var i = 0; i < data.length; i++) {
+        // console.log(data[i].lat)
+      //   placeMarker(map, data[i])
+      // }
     }
     function initialize() {
       var mapProp = {
@@ -83,6 +92,9 @@
       document.getElementById('submit').addEventListener('click', function() {
         codeAddress(geocoder, map);
       });
+      for (var i = 0; i < data.length; i++) {
+        placeMarker(map, data[i])
+      }
       // var myCenter=new google.maps.LatLng(51.508742,-0.120850);
       // codeAddress();
       // var marker=new google.maps.Marker({
@@ -162,25 +174,27 @@
 </div>
 
 <%= javascript_tag do %>
-    <% distance = params[:distance] %>
-    <% if distance.to_i == 1 %>
-        $('#one').addClass('active')
-        searchByDis(1)
-    <% elsif distance.to_i == 2 %>
-        $('#two').addClass('active')
-        searchByDis(2)
-    <% elsif distance.to_i == 5 %>
-        $('#five').addClass('active')
-        searchByDis(5)
-    <% elsif distance.to_i == 10 %>
-        $('#ten').addClass('active')
-        searchByDis(10)
-    <% end %>
+    var data = []
     <% if @positions %> 
       <% @positions.each do |p| %>
         var lat = <%=j p.lat.to_json %>
         var lng = <%=j p.lng.to_json %>
-        console.log(lat+' '+lng)
+        var datum = new google.maps.LatLng(lat, lng)
+        data.push(datum)
       <% end %>
+    <% end %>
+    <% distance = params[:distance] %>
+    <% if distance.to_i == 1 %>
+        $('#one').addClass('active')
+        searchByDis(1, data)
+    <% elsif distance.to_i == 2 %>
+        $('#two').addClass('active')
+        searchByDis(2, data)
+    <% elsif distance.to_i == 5 %>
+        $('#five').addClass('active')
+        searchByDis(5, data)
+    <% elsif distance.to_i == 10 %>
+        $('#ten').addClass('active')
+        searchByDis(10, data)
     <% end %>
 <% end %>
