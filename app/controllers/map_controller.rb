@@ -14,7 +14,7 @@ class MapController < ApplicationController
       ulng = lng + distance/111.7
       llng = lng - distance/111.7
       puts ulat, llat, ulng, llng
-      # @positions = Item.find(:all, :conditions => ["lat between ? and ?", -180, 180])
+      # @positions = Item.where("lat between ? and ?", -180, 180)
       @positions = Item.where("lat between ? and ? and lng between ? and ?", llat, ulat, llng, ulng)
     else
       params[:distance] = 1.0

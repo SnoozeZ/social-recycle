@@ -19,8 +19,10 @@
     var currentPos = null;
     var map;
     var data = []
+    var distance = 1;
     function placeMarker(map, location) {
-      console.log(location)
+      // console.log(location)
+      console.log("lat:"+location.lat()+" lng:"+location.lng())
       var marker = new google.maps.Marker({
         position: location,
         map: map,
@@ -61,11 +63,6 @@
           {
             placeMarker(map, results[i].geometry.location)
           }
-          // map.setCenter(results[0].geometry.location);
-          // var marker = new google.maps.Marker({
-          //   map: map,
-          //   position: results[0].geometry.location
-          // });
         } else {
           alert("Geocode was not successful for the following reason: " + status);
         }
@@ -76,10 +73,7 @@
       clearMarkers();
       markers = [];
       data = tmpdata;
-      // for (var i = 0; i < data.length; i++) {
-        // console.log(data[i].lat)
-      //   placeMarker(map, data[i])
-      // }
+      distance = dis;
     }
     function initialize() {
       var mapProp = {
@@ -103,7 +97,17 @@
             lng: position.coords.longitude
           };
           currentPos = pos;
-          console.log("lat:"+pos.lat+" lng:"+pos.lng)
+          var circle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            center: currentPos,
+            radius: 1000*distance
+          });
+          console.log("Your pos lat:"+pos.lat+" lng:"+pos.lng)
           document.getElementById('lat').value = pos.lat
           document.getElementById('lng').value = pos.lng
           infoWindow.setPosition(pos);
