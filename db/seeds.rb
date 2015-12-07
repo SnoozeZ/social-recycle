@@ -61,12 +61,12 @@ Item.create!(title: "2 Chairs",
              description: "2 chairs, come to pick me",
              expire_time: Date.tomorrow,
              is_valid: true,
-             lat: 32.8866,
-             lng: -117.24,
+             lat: 32.867186,
+             lng: -117.2121012,
              post_date: Time.zone.now,
              user_id: "1",
              category_id: 2,
-             address: "UCSD",
+             address: "Nobel Dr.",
              avatar: open("public/uploads/Chair.jpg")
 )
 
@@ -74,12 +74,12 @@ Item.create!(title: "Beautiful clothes",
              description: "Clothes",
              expire_time: Date.tomorrow,
              is_valid: true,
-             lat: 32.8866,
-             lng: -117.24,
+             lat: 32.8729974,
+             lng: -117.2048208,
              post_date: Time.zone.now,
              user_id: "1",
              category_id: 1,
-             address: "UCSD",
+             address: "Judicial Dr.",
              avatar: open("public/uploads/Clothes.jpg")
 )
 
