@@ -107,14 +107,14 @@ Item.create!(title: "Beautiful clothes",
 
 #for test - weiqi
 Dib.create!(
-    item_id: 1,
+    item_id: 51,
     user_id: 4
 )
 Dib.create!(
-    item_id: 1,
+    item_id: 51,
     user_id: 5
 )
 Dib.create!(
-    item_id: 1,
+    item_id: 51,
     user_id: 7
 )

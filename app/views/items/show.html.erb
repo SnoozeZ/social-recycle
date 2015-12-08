@@ -85,7 +85,7 @@
                 <% if !current_user.dibs.exists?(:item_id => id) %>
                     <%= button_to "I Want!", {:controller => "dibs", :action => "create", :dib=> {:item_id => id, :user_id => current_user.id}}, :method => :post, class: "btn btn-success", style: "width: 100%" %>
                 <% else %>
-                    <%= button_to "Withdraw!", {:controller => "dibs", :action => "destro", :dib => {:item_id => id, :user_id => current_user.id}}, :method => :post, class: "btn btn-danger", style: "width: 100%" %>
+                    <%= button_to "Withdraw!", {:controller => "dibs", :action => "destroy", :dib => {:item_id => id, :user_id => current_user.id}}, :method => :delete, class: "btn btn-danger", style: "width: 100%" %>
                 <% end %>
             <% end %>
         <% else %>

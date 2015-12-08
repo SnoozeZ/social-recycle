@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       UserMailer.verify_email(@user).deliver_now
       #UserMailer.account_activation(@user).deliver_now
       log_in @user
-      flash[:success]="Welcome to Social Recycle!"
+      flash[:success]="You need to activate your account in your email!"
       redirect_to @user
     else
       render 'new'

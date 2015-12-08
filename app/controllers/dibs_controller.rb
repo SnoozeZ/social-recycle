@@ -28,7 +28,7 @@ class DibsController < ApplicationController
     redirect_to items_url(type: {category: 0})
   end
 
-  def destro
+  def destroy
     @dib = Dib.find_by(item_id: dib_params[:item_id], user_id: dib_params[:user_id])
     @dib.destroy
     flash[:alert] = "Cancelled!"
